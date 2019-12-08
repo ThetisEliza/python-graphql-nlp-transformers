@@ -1,0 +1,24 @@
+[[source]]
+verify_ssl = true
+name = "pypi"
+url = "https://pypi.org/simple"
+
+[requires]
+python_version = "3.7"
+
+[packages]
+flask = "*"
+flask-graphql = "*"
+graphene = "*"
+gunicorn = "*"
+nltk = "*"
+
+[dev-packages]
+pytest = "*"
+pytest-watch = "*"
+
+[scripts]
+dev = "env FLASK_APP=app.py env FLASK_ENV=development flask run"
+prod = "env FLASK_APP=app.py env FLASK_ENV=production gunicorn --bind 0.0.0.0:5000 -w 8 wsgi:app --timeout 10000"
+test = "python -m pytest"
+test-watch = "ptw --runner 'python -m pytest -s'"
