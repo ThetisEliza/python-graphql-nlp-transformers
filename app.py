@@ -4,14 +4,6 @@ from server.schema.Schema import Schema
 
 app = Flask(__name__, static_url_path='', template_folder='./public', static_folder='./public')
 
-app.add_url_rule(
-    '/graphql',
-    view_func=GraphQLView.as_view(
-    'graphql',
-    schema=Schema,
-    #pass request to context to perform resolver validation
-    get_context=lambda: {'request': request}
-))
 
 @app.route('/')
 def hello_world():
@@ -28,6 +20,16 @@ def requests_error(error):
     return app.send_static_file('500.html')
 
 #point GraphQL playground to /graphql endpoint
+
+app.add_url_rule(
+    '/graphql',
+    view_func=GraphQLView.as_view(
+    'graphql',
+    schema=Schema,
+    #pass request to context to perform resolver validation
+    get_context=lambda: {'request': request}
+))
+
 @app.route('/graphiql')
 def playground_render():
     return app.send_static_file('playground.html')

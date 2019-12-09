@@ -3,9 +3,9 @@ import os
 from server.schema.levenshtein_calc import LevenshteinDistanceMutation
 
 class Query(graphene.ObjectType):
-    monitoring = graphene.Boolean(required=True)
+    healthcheck = graphene.Boolean(required=True)
 
-    def resolve_monitoring(self, info):
+    def resolve_healthcheck(self, info):
         return True
 
 
