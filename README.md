@@ -1,3 +1,4 @@
+
 ## Technologies
 
 - Python
@@ -33,3 +34,6 @@ pipenv run prod
 ```
 
 Both applications are run on common port **5000** for Flask applications. Documentation is available at http://localhost:5000/graphiql.
+
+# This repository demonstrates the code for the following articles
+* https://atheros.ai/blog/how-to-build-graphql-api-for-text-analytics-in-python
